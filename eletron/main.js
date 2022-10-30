@@ -19,7 +19,7 @@ function createWindow() {
     }
   });
 
-  mainWindow.loadURL(isDev ? 'http://localhost:8000' : `file://${__dirname}/../build/index.html`);
+  mainWindow.loadURL(isDev ? 'http://localhost:8000' : `file://${__dirname}/../dist/index.html`);
 
   // Open the DevTools.
   isDev && mainWindow.webContents.openDevTools();

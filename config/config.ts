@@ -73,4 +73,8 @@ export default defineConfig({
   mfsu: {},
   webpack5: {},
   exportStatic: {},
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
+  history: {
+    type: "hash"
+  }
 });

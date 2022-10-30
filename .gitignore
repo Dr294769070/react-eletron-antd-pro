@@ -1,3 +1,5 @@
 node_modules/
 dist/
 src/.umi/
+src/.umi-production/
+out/

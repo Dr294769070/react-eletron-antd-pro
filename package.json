@@ -4,8 +4,10 @@
   "private": true,
   "description": "An out-of-box UI solution for enterprise applications",
   "main": "./eletron/main.js",
+  "homepage": "./",
   "scripts": {
-    "eletron": "concurrently \" wait-on http://localhost:8000 && electron . \" \"cross-env BROWSER=none npm start \" ",
+    "eletron": "concurrently \" wait-on http://localhost:8000 && electron-forge start \" \"cross-env BROWSER=none npm start \" ",
+    "eletron:build": "npm run build && npm run make",
     "analyze": "cross-env ANALYZE=1 umi build",
     "build": "umi build",
     "deploy": "npm run build && npm run gh-pages",
@@ -35,7 +37,9 @@
     "test": "umi test",
     "test:component": "umi test ./src/components",
     "test:e2e": "node ./tests/run-tests.js",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
@@ -56,6 +60,7 @@
     "antd": "^4.20.0",
     "classnames": "^2.3.0",
     "electron-is-dev": "^2.0.0",
+    "electron-squirrel-startup": "^1.0.0",
     "lodash": "^4.17.0",
     "moment": "^2.29.0",
     "omit.js": "^2.0.2",
@@ -69,6 +74,11 @@
   },
   "devDependencies": {
     "@ant-design/pro-cli": "^2.1.0",
+    "@electron-forge/cli": "^6.0.0-beta.70",
+    "@electron-forge/maker-deb": "^6.0.0-beta.70",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.70",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.70",
+    "@electron-forge/maker-zip": "^6.0.0-beta.70",
     "@playwright/test": "^1.17.0",
     "@types/classnames": "^2.3.1",
     "@types/express": "^4.17.0",
