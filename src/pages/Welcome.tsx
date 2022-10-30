@@ -1,7 +1,7 @@
 import { PageContainer } from '@ant-design/pro-components';
-import { Alert, Card, Typography } from 'antd';
+import { Card, Typography, Button } from 'antd';
 import React from 'react';
-import { FormattedMessage, useIntl } from 'umi';
+import { history } from 'umi';
 import styles from './Welcome.less';
 
 const CodePreview: React.FC = ({ children }) => (
@@ -13,35 +13,20 @@ const CodePreview: React.FC = ({ children }) => (
 );
 
 const Welcome: React.FC = () => {
-  const intl = useIntl();
+
+  const navToBase = () => {
+    history.push('/base')
+  }
 
   return (
     <PageContainer>
       <Card>
-        <Alert
-          message={intl.formatMessage({
-            id: 'pages.welcome.alertMessage',
-            defaultMessage: 'Faster and stronger heavy-duty components have been released.',
-          })}
-          type="success"
-          showIcon
-          banner
-          style={{
-            margin: -12,
-            marginBottom: 24,
-          }}
-        />
-        <Typography.Text strong>
-          <a
-            href="https://procomponents.ant.design/components/table"
-            rel="noopener noreferrer"
-            target="__blank"
-          >
-            <FormattedMessage id="pages.welcome.link" defaultMessage="Welcome" />
-          </a>
-        </Typography.Text>
-        <CodePreview>yarn add @ant-design/pro-components</CodePreview>
+        <CodePreview>hello frank's react-eletron-antd-pro</CodePreview>
       </Card>
+      <Card title="Card title">
+      <Button type="primary" onClick={navToBase}>基础功能</Button>
+      </Card>
+
     </PageContainer>
   );
 };
